@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--configuration file for Checking feed Like Ccy.MCBenchmarks.dat.yyyymmdd , Except USD -->
+
+<feeds>
+
+	<chk_feeds>
+		<feed_name>/absolute/path/dummy/all/available/tags/filename.dat</feed_name>
+		
+		<feed_prefix_str check="n">
+			<prefix_str>USD</prefix_str>
+			<prefix_str_delim>.</prefix_str_delim>
+		</feed_prefix_str>
+		
+		<feed_postfix_date check="y">
+			<postfix_date_type>BUS_DATE</postfix_date_type>
+			<postfix_date_format>yyyymmdd</postfix_date_format>
+			<postfix_date_delim>.</postfix_date_delim>
+		</feed_postfix_date>
+
+		<feed_postfix_str check="y">
+			<postfix_str>csv</postfix_str>
+			<postfix_str_delim>.</postfix_str_delim>
+		</feed_postfix_str>
+
+		<feed_stale_check check="y">
+			<feed_prev_prefix_str check="n">
+				<prev_prefix_str>NA</prev_prefix_str>
+				<prev_prefix_str_delim>.</prev_prefix_str_delim>
+			</feed_prev_prefix_str>
+		
+			<feed_prev_postfix_date check="y">
+				<prev_postfix_date_type>BUS_DATE-1</prev_postfix_date_type>
+				<prev_postfix_date_format>yyyymmdd</prev_postfix_date_format>
+				<prev_postfix_date_delim>.</prev_postfix_date_delim>
+			</feed_prev_postfix_date>
+		</feed_stale_check>
+
+		<feed_variance_check check="y">
+			<feed_name_compare>/absolute/path/dummy/all/available/tags/filename.dat</feed_name_compare>
+			
+			<feed_compare_prefix_str check="n">
+				<compare_prefix_str>NA</compare_prefix_str>
+				<compare_prefix_str_delim>.</compare_prefix_str_delim>
+			</feed_compare_prefix_str>
+		
+			<feed_compare_postfix_date check="y">
+				<compare_postfix_date_type>BUS_DATE-1</compare_postfix_date_type>
+				<compare_postfix_date_format>yyyymmdd</compare_postfix_date_format>
+				<compare_postfix_date_delim>.</compare_postfix_date_delim>
+			</feed_compare_postfix_date>
+			
+			<feed_compare_delim>,</feed_compare_delim>
+			<feed_compare_key_column_num>1,2</feed_compare_key_column_num>
+			<feed_compare_column_num>3</feed_compare_column_num>
+			<feed_compare_absolute_diff_lim>10</feed_compare_absolute_diff_lim>
+			
+			<feed_variance_header_column_names>Currency|Tenor      |Yesterday   |Today       |Absolute Diffrence</feed_variance_header_column_names>
+
+			<feed_variance_check_email check="y">
+				<variance_send_email_always>n</variance_send_email_always>
+				<variance_send_email_when_fail>Y</variance_send_email_when_fail>
+				<variance_feed_check_email_subject>Feed Compare Report of </variance_feed_check_email_subject>
+				<variance_feed_check_email_to> <![CDATA[ email_address ]]> </variance_feed_check_email_to>
+				<variance_feed_check_email_cc>__NA__</variance_feed_check_email_cc>
+			</feed_variance_check_email>
+		</feed_variance_check>
+
+		<feed_time_stamp_date check="n">
+			<feed_time_stamp_date_type>bus_date</feed_time_stamp_date_type>
+		</feed_time_stamp_date>
+
+		<feed_time_stamp check="n">
+			<min_arraival_time>17:00:00</min_arraival_time>
+			<max_arraival_time>21:30:23</max_arraival_time>
+		</feed_time_stamp>
+		
+		<feed_size check="Y">
+			<min_file_size>3000</min_file_size>
+			<max_file_size>8000</max_file_size>
+		</feed_size>
+
+		<feed_num_lines check="Y">
+			<min_num_lines>150</min_num_lines>
+			<max_num_lines>500</max_num_lines>
+		</feed_num_lines>
+
+		<feed_header_line check="Y">
+			<header_line_num>1</header_line_num>
+			<header_line_regex>^\d{8}$</header_line_regex>
+		</feed_header_line>
+		
+		<feed_header_line_date check="Y">
+			<header_line_date_num>1</header_line_date_num>
+			<header_line_date_type>bus_date</header_line_date_type>
+			<header_line_date_format>yyyymmdd</header_line_date_format>
+			<header_line_date_regex>^(yyyymmdd)$</header_line_date_regex>
+		</feed_header_line_date>
+
+		<feed_num_column check="y">
+			<chk_column_line_num>2</chk_column_line_num>
+			<min_num_column>3</min_num_column>
+			<max_num_column>3</max_num_column>
+			<column_delim>,</column_delim>
+		</feed_num_column>
+		
+		<feed_all_line_check check="y">
+			<!--chk_escape_line_num>1,L-1</chk_escape_line_num> -->
+			<chk_escape_line_num>1</chk_escape_line_num>
+			<chk_escape_line_regex>__NA__</chk_escape_line_regex>
+			<feed_line_chk_case_senc>N</feed_line_chk_case_senc>
+			<feed_line_chk_error_limit>0</feed_line_chk_error_limit>
+			<feed_line_chk_regex>^\w{3}\,\w+\,(-)?\d+(\.\d+)?$</feed_line_chk_regex>
+		</feed_all_line_check>
+		
+		<feed_duplicate_line check='Y'>
+			<total_nos_duplicate_limit>50</total_nos_duplicate_limit>
+		</feed_duplicate_line>
+
+		<feed_tailer_line check="y">
+			<tailer_line_num>L</tailer_line_num>
+			<tailer_line_regex>^\w{3}\,\w+\,(-)?\d+(\.\d+)?$</tailer_line_regex>
+		</feed_tailer_line>
+		
+		<feed_tailer_line_date check="n">
+			<tailer_line_date_num>L-1</tailer_line_date_num>
+			<tailer_line_date_type>bus_date</tailer_line_date_type>
+			<tailer_line_date_format>yyyymmdd</tailer_line_date_format>
+			<tailer_line_date_regex>^(yyyymmdd)$</tailer_line_date_regex>
+		</feed_tailer_line_date>
+
+		<feed_check_email check="y">
+			<send_email_always>n</send_email_always>
+			<send_email_when_fail>Y</send_email_when_fail>
+			<feed_check_email_subject>Feed Check Report of </feed_check_email_subject>
+			<feed_check_email_to>email@address.com</feed_check_email_to>
+			<feed_check_email_cc>email@address.com</feed_check_email_cc>
+		</feed_check_email>
+		
+	</chk_feeds>
+	
+
+	<chk_feeds>
+		<feed_name>/apps/tfa/batch/usa/riskco/brz_trade_riskco.txt</feed_name>
+		
+		<feed_prefix_str check="n">
+			<prefix_str>USD</prefix_str>
+			<prefix_str_delim>.</prefix_str_delim>
+		</feed_prefix_str>
+		
+		<feed_postfix_date check="n">
+			<postfix_date_type>BUS_DATE</postfix_date_type>
+			<postfix_date_format>yyyymmdd</postfix_date_format>
+			<postfix_date_delim>.</postfix_date_delim>
+		</feed_postfix_date>
+
+		<feed_stale_check check="n">
+			<feed_prev_prefix_str check="n">
+				<prev_prefix_str>NA</prev_prefix_str>
+				<prev_prefix_str_delim>.</prev_prefix_str_delim>
+			</feed_prev_prefix_str>
+		
+			<feed_prev_postfix_date check="n">
+				<prev_postfix_date_type>BUS_DATE-1</prev_postfix_date_type>
+				<prev_postfix_date_format>yyyymmdd</prev_postfix_date_format>
+				<prev_postfix_date_delim>.</prev_postfix_date_delim>
+			</feed_prev_postfix_date>
+		</feed_stale_check>
+				
+		<feed_time_stamp_date check="n">
+			<feed_time_stamp_date_type>bus_date</feed_time_stamp_date_type>
+		</feed_time_stamp_date>
+
+		<feed_time_stamp check="n">
+			<min_arraival_time>17:00:00</min_arraival_time>
+			<max_arraival_time>21:30:23</max_arraival_time>
+		</feed_time_stamp>
+		
+		<feed_size check="Y">
+			<min_file_size>1000</min_file_size>
+			<max_file_size>10000</max_file_size>
+		</feed_size>
+
+		<feed_num_lines check="Y">
+			<min_num_lines>2</min_num_lines>
+			<max_num_lines>100</max_num_lines>
+		</feed_num_lines>
+
+		<feed_header_line check="Y">
+			<header_line_num>1</header_line_num>
+			<header_line_regex>Business Date</header_line_regex>
+		</feed_header_line>
+		
+		<feed_header_line_date check="Y">
+			<header_line_date_num>2</header_line_date_num>
+			<header_line_date_type>bus_date</header_line_date_type>
+			<header_line_date_format>yyyymmdd</header_line_date_format>
+			<header_line_date_regex>^(yyyymmdd)</header_line_date_regex>
+		</feed_header_line_date>
+
+		<feed_num_column check="y">
+			<chk_column_line_num>2</chk_column_line_num>
+			<min_num_column>43</min_num_column>
+			<max_num_column>44</max_num_column>
+			<column_delim>|</column_delim>
+		</feed_num_column>
+		
+		<feed_all_line_check check="Y">
+			<!--chk_escape_line_num>1,L-1</chk_escape_line_num> -->
+			<chk_escape_line_num>1</chk_escape_line_num>
+			<feed_line_chk_case_senc>N</feed_line_chk_case_senc>
+			<feed_line_chk_error_limit>6</feed_line_chk_error_limit>
+			<feed_line_chk_regex>^\d{8}\|</feed_line_chk_regex>
+		</feed_all_line_check>
+		
+		<feed_duplicate_line check='Y'>
+			<total_nos_duplicate_limit>0</total_nos_duplicate_limit>
+		</feed_duplicate_line>
+
+		<feed_tailer_line check="y">
+			<tailer_line_num>L</tailer_line_num>
+			<tailer_line_regex>^\d{8}\|</tailer_line_regex>
+		</feed_tailer_line>
+		
+		<feed_tailer_line_date check="y">
+			<tailer_line_date_num>L-1</tailer_line_date_num>
+			<tailer_line_date_type>bus_date</tailer_line_date_type>
+			<tailer_line_date_format>yyyymmdd</tailer_line_date_format>
+			<tailer_line_date_regex>^(yyyymmdd)</tailer_line_date_regex>
+		</feed_tailer_line_date>
+
+		<feed_check_email check="y">
+			<send_email_always>n</send_email_always>
+			<send_email_when_fail>Y</send_email_when_fail>
+			<feed_check_email_subject>Feed Check Report of </feed_check_email_subject>
+			<feed_check_email_to>sanjoga.x.sahu@jpmchase.com</feed_check_email_to>
+			<feed_check_email_cc>__NA__</feed_check_email_cc>
+
+		</feed_check_email>
+		
+	</chk_feeds>
+
+
+</feeds>
